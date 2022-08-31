@@ -1,0 +1,41 @@
+version: "3"
+
+services:
+  usermanagement:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    command: npm run dev
+    image: "gamiotics:usermanagement"
+    environment:
+      NODE_ENV: dev
+      PORT: 4000
+    volumes:
+      - .:/usr/src/app
+      - node_modules:/usr/src/app/node_modules
+    ports:
+        - "4000:4000"
+    links:
+      - postgres
+    networks:
+      - app-network
+
+  postgres:
+    image: postgres
+    restart: always
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=123456
+    ports:
+      - '5432:5432'
+    networks:
+      - app-network
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  dbdata:
+  node_modules:

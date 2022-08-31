@@ -1,0 +1,5 @@
+NODE_ENV=dev
+DB_HOST=host
+DB_PASSWORD=yourdbpassword
+DB_USERNAME=yourdbusername
+DATABASE=yourdatabasename

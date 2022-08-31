@@ -1,0 +1,3 @@
+Gamiotics-usermanagement:build: cache hit, replaying output [2m55a8bb4d81db7aac[0m
+[35mGamiotics-usermanagement:build: [0m$ yarn run compile
+[35mGamiotics-usermanagement:build: [0m$ tsc

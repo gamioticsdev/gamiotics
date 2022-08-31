@@ -1,0 +1,17 @@
+{
+  "type": "postgres",
+  "host": "",
+  "port": 5432,
+  "username": "",
+  "password": "",
+  "database": "",
+  "entities": ["./src/entity/*.ts"],
+  "migrations": ["./src/migrations/*.ts"],
+  "synchronize": false,
+  "migrationsRun": true,
+  "migrationsTransactionMode": "each",
+  "logging": true,
+  "cli": {
+    "migrationsDir": ["./src/migrations/*.ts"]
+  }
+}

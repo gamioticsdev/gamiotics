@@ -1,0 +1,41 @@
+version: "3"
+
+services:
+  ticket-service:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    command: yarn run dev
+    image: "gamiotics:ticket-service"
+    environment:
+      NODE_ENV: dev
+      PORT: 3000
+    volumes:
+      - .:/usr/src/app
+      - node_modules:/usr/src/app/node_modules
+    ports:
+        - "3000:3000"
+    links:
+      - postgres
+    networks:
+      - app-network
+
+  postgres:
+    image: postgres
+    restart: always
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=${DB_USERNAME}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+    ports:
+      - '5433:5432'
+    networks:
+      - app-network
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  dbdata:
+  node_modules:

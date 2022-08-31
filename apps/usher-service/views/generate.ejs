@@ -1,0 +1,49 @@
+<script type="text/javascript" src="grid.js"></script>
+<script type="text/javascript" src="version.js"></script>
+<script type="text/javascript" src="detector.js"></script>
+<script type="text/javascript" src="formatinf.js"></script>
+<script type="text/javascript" src="errorlevel.js"></script>
+<script type="text/javascript" src="bitmat.js"></script>
+<script type="text/javascript" src="datablock.js"></script>
+<script type="text/javascript" src="bmparser.js"></script>
+<script type="text/javascript" src="datamask.js"></script>
+<script type="text/javascript" src="rsdecoder.js"></script>
+<script type="text/javascript" src="gf256poly.js"></script>
+<script type="text/javascript" src="gf256.js"></script>
+<script type="text/javascript" src="decoder.js"></script>
+<script type="text/javascript" src="qrcode.js"></script>
+<script type="text/javascript" src="findpat.js"></script>
+<script type="text/javascript" src="alignpat.js"></script>
+<script type="text/javascript" src="databr.js"></script>
+<script type="text/javascript" src="jquery.min.js"></script> 
+<script>
+    
+    function decodeQrCode(callback) {
+        qrcode.callback = callback;
+        qrcode.decode("<%- src %>");
+    }
+
+    function verify() {
+        // console.log($('p').data('otc'));
+        const otc = $('p').data('otc');
+        console.log('otc', otc);
+        $.ajax({
+            url: `/code/verifyqrcode?otc=${otc}&timestamp=${new Date()}`
+        }).then((resp)=> {
+            console.log('resp', resp);
+        })
+    }
+</script>
+<img src=<%=src%> alt="QR Code Image">
+<p>Scan the QR Code to access data!</p>
+<button type="button" class="btn btn-primary" onclick="decodeQrCode(function (decodedInformation){
+    // alert(decodedInformation)
+    console.log('decodedinformation', decodedInformation)
+
+    $('body').data('otc', decodedInformation.otc);
+    $('p').data('otc', JSON.parse(decodedInformation).otc);
+    $('p').text(JSON.parse(decodedInformation).otc);
+})">scan</button>
+<p id="otc"></p>
+<button type="button" class="btn btn-primary" onclick="verify()">verify</button>
+<br>

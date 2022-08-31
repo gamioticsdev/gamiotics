@@ -1,0 +1,16 @@
+@gamiotics/edge-service:build: cache hit, replaying output [2m063758386ca992dc[0m
+[34m@gamiotics/edge-service:build: [0mwarning package.json: License should be a valid SPDX license expression
+[34m@gamiotics/edge-service:build: [0m$ tsup src/server.ts --format esm,cjs --dts
+[34m@gamiotics/edge-service:build: [0m[34mCLI[39m Building entry: src/server.ts
+[34m@gamiotics/edge-service:build: [0m[34mCLI[39m Using tsconfig: tsconfig.json
+[34m@gamiotics/edge-service:build: [0m[34mCLI[39m tsup v6.1.3
+[34m@gamiotics/edge-service:build: [0m[34mCLI[39m Target: node14
+[34m@gamiotics/edge-service:build: [0m[34mESM[39m Build start
+[34m@gamiotics/edge-service:build: [0m[34mCJS[39m Build start
+[34m@gamiotics/edge-service:build: [0m[32mCJS[39m ⚡️ Build success in 64ms
+[34m@gamiotics/edge-service:build: [0m[32mESM[39m ⚡️ Build success in 146ms
+[34m@gamiotics/edge-service:build: [0m[32mESM[39m [1mdist\server.mjs [22m[32m274.00 B[39m
+[34m@gamiotics/edge-service:build: [0m[32mCJS[39m [1mdist\server.js [22m[32m1.14 KB[39m
+[34m@gamiotics/edge-service:build: [0m[34mDTS[39m Build start
+[34m@gamiotics/edge-service:build: [0m[32mDTS[39m ⚡️ Build success in 3487ms
+[34m@gamiotics/edge-service:build: [0m[32mDTS[39m [1mdist\server.d.ts [22m[32m1.00 B[39m

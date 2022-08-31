@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  usher-service:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    command: yarn run dev
+    image: "gamiotics:ticket-service"
+    environment:
+      NODE_ENV: dev
+      PORT: 3001
+    volumes:
+      - .:/usr/src/app
+      - node_modules:/usr/src/app/node_modules
+    ports:
+        - "3001:3001"
+    networks:
+      - app-network
+
+volumes:
+  node_modules:

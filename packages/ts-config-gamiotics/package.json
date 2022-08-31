@@ -1,0 +1,10 @@
+{
+  "name": "ts-config-gamiotics",
+  "version": "0.0.0",
+  "license": "",
+  "private": true,
+  "main": "index.js",
+  "files": [
+    "base.json"
+  ]
+}
